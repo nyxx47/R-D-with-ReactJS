@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./BookbuildingComponent.css";
 
 const BookbuildingComponent = () => {
+  const [label, setLabel] = useState("CODE");
+  const textRef = useRef(null);
+  const measureRef = useRef(null);
+  const [rectSize, setRectSize] = useState({ width: 0, height: 0 });
+  const padding = 5; // SVG units
+  const fontSize = 10; // px in SVG units
+  // Screen-space center of the target circle (apply its matrix to local center)
+  const circleMatrix = {
+    a: 0.866041,
+    b: -0.499972,
+    c: 0.866041,
+    d: 0.499972,
+    e: 121.767,
+    f: 137.443,
+  };
+  const circleLocalCenter = { cx: 37.3156, cy: 37.3156 };
+  const circleCenter = {
+    x:
+      circleMatrix.a * circleLocalCenter.cx +
+      circleMatrix.c * circleLocalCenter.cy +
+      circleMatrix.e,
+    y:
+      circleMatrix.b * circleLocalCenter.cx +
+      circleMatrix.d * circleLocalCenter.cy +
+      circleMatrix.f,
+  };
+
+  useEffect(() => {
+    if (measureRef.current) {
+      const bbox = measureRef.current.getBBox();
+      setRectSize({
+        width: bbox.width + padding * 2,
+        height: bbox.height + padding * 2,
+      });
+    }
+  }, [label, fontSize]);
+
   return (
     <div className="bookbuilding-container">
+      <div style={{ position: "absolute", top: 16 }}>
+        <input
+          value={label}
+          onChange={(e) => setLabel(e.target.value)}
+          placeholder="Type label"
+          style={{
+            padding: "6px 10px",
+            borderRadius: 6,
+            border: "1px solid #333",
+            background: "#121212",
+            color: "#eaeaea",
+            outline: "none",
+          }}
+        />
+      </div>
       <svg
         width="375"
         height="345"
@@ -11,6 +63,20 @@ const BookbuildingComponent = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        {/* Hidden measurement text to compute size without transforms */}
+        <text
+          ref={measureRef}
+          x={0}
+          y={0}
+          fontSize={fontSize}
+          fontFamily="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+          dominantBaseline="hanging"
+          fill="none"
+          opacity="0"
+          pointerEvents="none"
+        >
+          {label}
+        </text>
         {/* Dashed lines */}
         <path
           d="M239 199.5L315.5 244.5L370.5 276"
@@ -350,20 +416,34 @@ const BookbuildingComponent = () => {
           stroke="url(#paint22_linear_1464_35793)"
           strokeWidth="0.186578"
         />
-        {/* Rectangle and code elements */}
-        <rect
-          x="0.323169"
-          width="41.5826"
-          height="19.6121"
-          transform="matrix(0.866041 -0.499972 0.866041 0.499972 160.375 142.912)"
-          stroke="url(#paint23_linear_1464_35793)"
-          strokeWidth="0.373156"
-        />
-        <g filter="url(#filter4_d_1464_35793)">
-          <path
-            d="M181.459 144.045L176.578 146.863L169.68 142.881L174.561 140.063L175.854 140.809L172.441 142.779L173.899 143.621L177.24 141.693L178.532 142.439L175.192 144.367L176.754 145.269L180.166 143.299L181.459 144.045ZM190.084 139.066L188.605 139.92L183.775 137.132L186.661 141.042L186.019 141.412L179.246 139.746L184.075 142.535L182.607 143.382L175.709 139.4L177.767 138.212L183.61 139.651L181.118 136.278L183.186 135.084L190.084 139.066ZM197.886 134.562L196.211 135.529L194.618 135.099L191.66 136.806L192.395 137.732L190.719 138.699L186.49 133.176L188.33 132.114L197.886 134.562ZM192.922 134.585L188.879 133.493L190.771 135.827L192.922 134.585ZM201.027 132.891C199.704 133.656 198.307 133.948 197.015 133.942L196.694 132.838C197.687 132.85 198.866 132.659 199.817 132.109C200.624 131.644 200.645 131.202 200.252 130.975C199.031 130.27 195.898 133.047 193.302 131.548C192.154 130.885 192.196 129.763 193.819 128.826C194.915 128.193 196.156 127.859 197.47 127.829L197.728 128.921C196.653 128.945 195.67 129.238 194.967 129.644C194.336 130.008 194.264 130.372 194.678 130.611C195.774 131.244 199 128.533 201.575 130.02C202.837 130.748 202.889 131.817 201.027 132.891Z"
+        {/* Dynamic label on circle with same skew/rotation as the circle */}
+        <g transform="matrix(0.866041 -0.499972 0.866041 0.499972 121.767 137.443)">
+          {rectSize.width > 0 && (
+            <rect
+              x={circleLocalCenter.cx - rectSize.width / 2}
+              y={circleLocalCenter.cy - rectSize.height / 2}
+              width={rectSize.width}
+              height={rectSize.height}
+              rx={2}
+              stroke="url(#paint23_linear_1464_35793)"
+              strokeWidth="0.373156"
+              fill="none"
+            />
+          )}
+          <text
+            ref={textRef}
+            x={circleLocalCenter.cx}
+            y={circleLocalCenter.cy}
+            fontSize={fontSize}
+            fontFamily="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+            fontWeight={700}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            dy="0.05em"
             fill="url(#paint24_linear_1464_35793)"
-          />
+          >
+            {label}
+          </text>
         </g>
         {/* Definitions and gradients */}
         <defs>
