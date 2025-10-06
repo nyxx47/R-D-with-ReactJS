@@ -6,7 +6,8 @@ const BookbuildingComponent = () => {
   const textRef = useRef(null);
   const measureRef = useRef(null);
   const [rectSize, setRectSize] = useState({ width: 0, height: 0 });
-  const padding = 5; // SVG units
+  const paddingY = 4; // top/bottom in px
+  const paddingX = 7; // left/right in px
   const fontSize = 10; // px in SVG units
   // Screen-space center of the target circle (apply its matrix to local center)
   const circleMatrix = {
@@ -33,8 +34,8 @@ const BookbuildingComponent = () => {
     if (measureRef.current) {
       const bbox = measureRef.current.getBBox();
       setRectSize({
-        width: bbox.width + padding * 2,
-        height: bbox.height + padding * 2,
+        width: bbox.width + paddingX * 2,
+        height: bbox.height + paddingY * 2,
       });
     }
   }, [label, fontSize]);
