@@ -306,23 +306,34 @@ const BookbuildingComponent = () => {
           />
         </mask>
         <g mask="url(#mask0_1464_35793)">
-          <g filter="url(#filter1_f_1464_35793)">
-            <path
-              d="M221.393 157.71C227.822 161.422 227.822 167.44 221.393 171.151C214.963 174.863 204.54 174.863 198.111 171.151C191.681 167.44 177.324 160.526 183.753 156.814C190.182 153.103 214.963 153.999 221.393 157.71Z"
-              fill="#796FEC"
+          {/* Rotate blobs around the circle's screen-space center without extra skew */}
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              values={`0 ${circleCenter.x} ${circleCenter.y}; 360 ${circleCenter.x} ${circleCenter.y}`}
+              dur="6s"
+              repeatCount="indefinite"
+              calcMode="linear"
             />
-          </g>
-          <g filter="url(#filter2_f_1464_35793)">
-            <path
-              d="M165.686 162.958C162.323 158.081 166.445 152.554 174.893 150.613C183.34 148.671 192.914 151.051 196.277 155.928C199.64 160.805 208.091 170.432 199.644 172.374C191.196 174.315 169.049 167.835 165.686 162.958Z"
-              fill="#439ACB"
-            />
-          </g>
-          <g filter="url(#filter3_f_1464_35793)">
-            <path
-              d="M240.6 140.125C247.029 143.837 246.835 160.047 240.406 163.759C233.977 167.47 224.523 167.359 218.094 163.647C216.736 157.487 197.89 150.669 204.319 146.958C210.748 143.246 234.171 136.414 240.6 140.125Z"
-              fill="#D74342"
-            />
+            <g filter="url(#filter1_f_1464_35793)">
+              <path
+                d="M221.393 157.71C227.822 161.422 227.822 167.44 221.393 171.151C214.963 174.863 204.54 174.863 198.111 171.151C191.681 167.44 177.324 160.526 183.753 156.814C190.182 153.103 214.963 153.999 221.393 157.71Z"
+                fill="#796FEC"
+              />
+            </g>
+            <g filter="url(#filter2_f_1464_35793)">
+              <path
+                d="M165.686 162.958C162.323 158.081 166.445 152.554 174.893 150.613C183.34 148.671 192.914 151.051 196.277 155.928C199.64 160.805 208.091 170.432 199.644 172.374C191.196 174.315 169.049 167.835 165.686 162.958Z"
+                fill="#439ACB"
+              />
+            </g>
+            <g filter="url(#filter3_f_1464_35793)">
+              <path
+                d="M240.6 140.125C247.029 143.837 246.835 160.047 240.406 163.759C233.977 167.47 224.523 167.359 218.094 163.647C216.736 157.487 197.89 150.669 204.319 146.958C210.748 143.246 234.171 136.414 240.6 140.125Z"
+                fill="#D74342"
+              />
+            </g>
           </g>
         </g>
         {/* Circles and additional elements */}
@@ -460,10 +471,10 @@ const BookbuildingComponent = () => {
           </clipPath>
           <filter
             id="filter1_f_1464_35793"
-            x="159.731"
-            y="132.036"
-            width="88.8857"
-            height="64.3016"
+            x="-1000"
+            y="-1000"
+            width="3000"
+            height="3000"
             filterUnits="userSpaceOnUse"
             colorInterpolationFilters="sRGB"
           >
@@ -481,10 +492,10 @@ const BookbuildingComponent = () => {
           </filter>
           <filter
             id="filter2_f_1464_35793"
-            x="142.112"
-            y="127.534"
-            width="83.5743"
-            height="67.5956"
+            x="-1000"
+            y="-1000"
+            width="3000"
+            height="3000"
             filterUnits="userSpaceOnUse"
             colorInterpolationFilters="sRGB"
           >
@@ -502,10 +513,10 @@ const BookbuildingComponent = () => {
           </filter>
           <filter
             id="filter3_f_1464_35793"
-            x="180.584"
-            y="116.652"
-            width="87.145"
-            height="72.2381"
+            x="-1000"
+            y="-1000"
+            width="3000"
+            height="3000"
             filterUnits="userSpaceOnUse"
             colorInterpolationFilters="sRGB"
           >
