@@ -11,45 +11,6 @@ const BookbuildingComponent = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Green animated paths */}
-        <path
-          className="animated-path"
-          d="M143 344L187 318.5L59 244.5L136.5 200"
-          stroke="#0BA16B"
-          strokeWidth="2"
-          fill="none"
-        />
-        <path
-          className="animated-path"
-          d="M143 344L187 318.5L315.5 244.5L239 199.5"
-          stroke="#0BA16B"
-          strokeWidth="2"
-          fill="none"
-        />
-
-        {/* Static elements */}
-        <rect
-          width="5.99942"
-          height="15.9985"
-          rx="2.99971"
-          transform="matrix(0.866041 -0.499972 0.866041 0.499972 127 285.999)"
-          fill="url(#paint0_linear_1464_35793)"
-        />
-        <rect
-          width="18.066"
-          height="6"
-          rx="3"
-          transform="matrix(0.866041 -0.499972 0.866041 0.499972 268 269.032)"
-          fill="url(#paint1_linear_1464_35793)"
-        />
-        <rect
-          width="6.88748"
-          height="6"
-          rx="3"
-          transform="matrix(0.866041 -0.499972 0.866041 0.499972 114 210.032)"
-          fill="url(#paint2_linear_1464_35793)"
-        />
-
         {/* Dashed lines */}
         <path
           d="M239 199.5L315.5 244.5L370.5 276"
@@ -206,6 +167,22 @@ const BookbuildingComponent = () => {
           strokeWidth="0.5"
           strokeLinecap="round"
           strokeDasharray="2 2"
+        />
+
+        {/* Green animated paths */}
+        <path
+          className="animated-path"
+          d="M143 344L187 318.5L315.5 244.5L239 199.5"
+          stroke="#0BA16B"
+          strokeWidth="2"
+          fill="none"
+        />
+        <path
+          className="animated-path"
+          d="M143 344L187 318.5L59 244.5L136.5 200"
+          stroke="#0BA16B"
+          strokeWidth="2"
+          fill="none"
         />
 
         {/* Second device */}

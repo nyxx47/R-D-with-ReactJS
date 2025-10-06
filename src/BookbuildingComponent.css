@@ -7,54 +7,50 @@
   background: #0a0a0a;
 }
 
-/* Animated path styles */
-.animated-path {
+/* Background path styles */
+.background-path {
   stroke-dasharray: 6 6; /* Dotted line with 6px dots */
-  stroke-dashoffset: 0;
   stroke-linecap: round;
   stroke-linejoin: round;
-  animation: trimPath 3s ease-in-out infinite;
 }
 
-/* Trim path animation */
-@keyframes trimPath {
-  0% {
-    stroke-dashoffset: 100;
-    opacity: 0;
+/* Animated path styles - single dot animation */
+.animated-path {
+  stroke-dasharray: 8 9999; /* visible dash = 8px, the rest hidden */
+  stroke-dashoffset: 0;
+  animation: moveTrim 3s linear infinite;
+}
+
+@keyframes moveTrim {
+  to {
+    stroke-dashoffset: -1000; /* continuously move dash */
   }
-  50% {
-    opacity: 1;
+}
+
+/* Single dot animation - only one dot visible at a time */
+@keyframes singleDotMove {
+  0% {
+    stroke-dashoffset: 0;
   }
   100% {
-    stroke-dashoffset: 0;
-    opacity: 1;
+    stroke-dashoffset: -12; /* Move by one dot (6px dot + 6px gap) */
   }
 }
 
-/* Alternative animation for continuous flow */
-.animated-path:nth-child(2) {
-  animation: trimPathReverse 3s ease-in-out infinite;
+/* Alternative animation for second path with delay */
+.animated-path:nth-child(4) {
+  animation: trimPath 1.5s linear infinite;
   animation-delay: 1.5s;
-}
-
-@keyframes trimPathReverse {
-  0% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    stroke-dashoffset: -100;
-    opacity: 1;
-  }
 }
 
 /* Hover effect for interactive feel */
 .bookbuilding-container:hover .animated-path {
   stroke-width: 3;
-  filter: drop-shadow(0 0 8px #0ba16b);
+  transition: all 0.3s ease;
+}
+
+.bookbuilding-container:hover .background-path {
+  stroke-width: 4;
   transition: all 0.3s ease;
 }
 
@@ -67,6 +63,10 @@
   .animated-path {
     stroke-width: 1.5;
   }
+
+  .background-path {
+    stroke-width: 2;
+  }
 }
 
 @media (max-width: 480px) {
@@ -76,5 +76,9 @@
 
   .animated-path {
     stroke-width: 1;
+  }
+
+  .background-path {
+    stroke-width: 1.5;
   }
 }
