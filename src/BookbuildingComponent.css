@@ -27,16 +27,6 @@
   }
 }
 
-/* Single dot animation - only one dot visible at a time */
-@keyframes singleDotMove {
-  0% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: -12; /* Move by one dot (6px dot + 6px gap) */
-  }
-}
-
 /* Alternative animation for second path with delay */
 .animated-path:nth-child(4) {
   animation: trimPath 1.5s linear infinite;
