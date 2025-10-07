@@ -84,7 +84,7 @@ const BookbuildingLightComponent = () => {
           stroke="#E5E5E5"
           strokeDasharray="6 6"
         />
-        <path d="M-45 300.5L344 80" stroke="#E5E5E5" strokeDasharray="6 6" />
+        <path d="M-40 300.5L344 83" stroke="#E5E5E5" strokeDasharray="6 6" />
         <path d="M59 318.5L344 154" stroke="#E5E5E5" strokeDasharray="6 6" />
         <path
           d="M-35 450.5L400 195"
@@ -97,7 +97,7 @@ const BookbuildingLightComponent = () => {
           stroke="#E5E5E5"
           strokeDasharray="6 6"
         />
-        <path d="M17 195L100 147" stroke="#E5E5E5" strokeDasharray="6 6" />
+        <path d="M17 195L100 150" stroke="#E5E5E5" strokeDasharray="6 6" />
         <path d="M316 319L27 152" stroke="#E5E5E5" strokeDasharray="6 6" />
         {/* Main device/phone mockup - light mode */}
         <rect
@@ -241,14 +241,14 @@ const BookbuildingLightComponent = () => {
         />
         {/* Green animated paths */}
         <path
-          className="animated-path"
+          className="animated-path speed-slow"
           d="M143 344L187 318.5L315.5 244.5L239 199.5"
           stroke="#00AB6B"
           strokeWidth="2"
           fill="none"
         />
         <path
-          className="animated-path"
+          className="animated-path speed-faster"
           d="M143 344L187 318.5L59 244.5L136.5 200"
           stroke="#00AB6B"
           strokeWidth="2"
@@ -271,8 +271,8 @@ const BookbuildingLightComponent = () => {
           height="117.917"
           rx="9.43339"
           transform="matrix(0.866041 -0.499972 0.866041 0.499972 84.7109 137.443)"
-          fill="white"
-          fillOpacity="0.1"
+          fill="rgba(255, 255, 255, .5)"
+          filter="url(#backdropBlur_light)"
         />
         <rect
           width="111.947"
@@ -586,6 +586,17 @@ const BookbuildingLightComponent = () => {
               in2="effect1_dropShadow_light"
               result="shape"
             />
+          </filter>
+          <filter
+            id="backdropBlur_light"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+            filterUnits="objectBoundingBox"
+            colorInterpolationFilters="sRGB"
+          >
+            <feGaussianBlur stdDeviation="1.8657820224761963" />
           </filter>
 
           {/* Gradients - light mode */}

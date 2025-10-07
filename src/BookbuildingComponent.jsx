@@ -238,14 +238,14 @@ const BookbuildingComponent = () => {
         />
         {/* Green animated paths */}
         <path
-          className="animated-path"
+          className="animated-path speed-slow"
           d="M143 344L187 318.5L315.5 244.5L239 199.5"
           stroke="#0BA16B"
           strokeWidth="2"
           fill="none"
         />
         <path
-          className="animated-path"
+          className="animated-path speed-faster"
           d="M143 344L187 318.5L59 244.5L136.5 200"
           stroke="#0BA16B"
           strokeWidth="2"
