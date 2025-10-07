@@ -5,6 +5,7 @@ import RiveComponent from "./RiveComponent";
 import IllustrationComponent from "./IllustrationComponent";
 import BookbuildingComponent from "./BookbuildingComponent";
 import "./App.css";
+import BookbuildingLightComponent from "./BookbuildingLightComponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,7 +16,8 @@ function App() {
     <>
       <div style={{ margin: "20px 0" }}>
         <h2>Illustration Component</h2>
-        <BookbuildingComponent />
+        <BookbuildingLightComponent/>
+        {/* <BookbuildingComponent /> */}
       </div>
     </>
   );
