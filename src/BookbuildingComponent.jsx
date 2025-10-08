@@ -57,6 +57,8 @@ const BookbuildingComponent = () => {
           }}
         />
       </div>
+      <div className="rect-blur-top-dark"></div>
+      <div className="rect-blur-bottom-dark"></div>
       <svg
         width="375"
         height="345"
@@ -263,33 +265,15 @@ const BookbuildingComponent = () => {
         />
 
         {/* Background blur effect using SVG filters */}
-        <g transform="matrix(0.866041 -0.499972 0.866041 0.499972 84.7109 137.443)">
-          {/* Blurred background elements */}
-          <g filter="url(#backgroundBlur)">
-            <rect
-              x="-20"
-              y="-20"
-              width="157.917"
-              height="157.917"
-              fill="url(#paint16_radial_1464_35793)"
-              opacity="0.3"
-            />
-            <circle
-              cx="37.3156"
-              cy="37.3156"
-              r="36.9425"
-              fill="#121212"
-              opacity="0.2"
-            />
-          </g>
-          {/* Main rect with semi-transparent overlay */}
-          <rect
-            width="117.917"
-            height="117.917"
-            rx="9.43339"
-            fill="rgba(255, 255, 255, 0.02)"
-          />
-        </g>
+        <rect
+          data-figma-bg-blur-radius="3.73156"
+          width="117.917"
+          height="117.917"
+          rx="9.43339"
+          transform="matrix(0.866041 -0.499972 0.866041 0.499972 84.7109 137.443)"
+          fill="white"
+          fill-opacity="0.05"
+        ></rect>
         <rect
           width="111.947"
           height="111.947"
