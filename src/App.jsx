@@ -16,8 +16,8 @@ function App() {
     <>
       <div style={{ margin: "20px 0" }}>
         <h2>Illustration Component</h2>
-        <BookbuildingLightComponent/>
-        {/* <BookbuildingComponent /> */}
+        {/* <BookbuildingLightComponent /> */}
+        <BookbuildingComponent />
       </div>
     </>
   );

@@ -84,7 +84,7 @@ const BookbuildingComponent = () => {
           stroke="#1D1D1D"
           strokeDasharray="6 6"
         />
-        <path d="M-45 300.5L344 80" stroke="#1D1D1D" strokeDasharray="6 6" />
+        <path d="M20 267.5L162 185" stroke="#1D1D1D" strokeDasharray="6 6" />
         <path d="M59 318.5L344 154" stroke="#1D1D1D" strokeDasharray="6 6" />
         <path
           d="M-35 450.5L400 195"
@@ -241,7 +241,7 @@ const BookbuildingComponent = () => {
           className="animated-path speed-slow"
           d="M143 344L187 318.5L315.5 244.5L239 199.5"
           stroke="#0BA16B"
-          strokeWidth="2"
+          strokeWidth="4"
           fill="none"
         />
         <path
@@ -261,16 +261,35 @@ const BookbuildingComponent = () => {
           stroke="url(#paint15_linear_1464_35793)"
           strokeWidth="0.373156"
         />
-      
-        <rect
-          data-figma-bg-blur-radius="3.73156"
-          width="117.917"
-          height="117.917"
-          rx="9.43339"
-          transform="matrix(0.866041 -0.499972 0.866041 0.499972 84.7109 137.443)"
-          fill="white"
-          fillOpacity="0.02"
-        />
+
+        {/* Background blur effect using SVG filters */}
+        <g transform="matrix(0.866041 -0.499972 0.866041 0.499972 84.7109 137.443)">
+          {/* Blurred background elements */}
+          <g filter="url(#backgroundBlur)">
+            <rect
+              x="-20"
+              y="-20"
+              width="157.917"
+              height="157.917"
+              fill="url(#paint16_radial_1464_35793)"
+              opacity="0.3"
+            />
+            <circle
+              cx="37.3156"
+              cy="37.3156"
+              r="36.9425"
+              fill="#121212"
+              opacity="0.2"
+            />
+          </g>
+          {/* Main rect with semi-transparent overlay */}
+          <rect
+            width="117.917"
+            height="117.917"
+            rx="9.43339"
+            fill="rgba(255, 255, 255, 0.02)"
+          />
+        </g>
         <rect
           width="111.947"
           height="111.947"
@@ -438,6 +457,18 @@ const BookbuildingComponent = () => {
         </g>
         {/* Definitions and gradients */}
         <defs>
+          {/* Background blur filter for Safari compatibility */}
+          <filter
+            id="backgroundBlur"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+            filterUnits="objectBoundingBox"
+            colorInterpolationFilters="sRGB"
+          >
+            <feGaussianBlur stdDeviation="1.87" />
+          </filter>
           <clipPath
             id="bgblur_0_1464_35793_clip_path"
             transform="translate(-85.765 -77.5192)"

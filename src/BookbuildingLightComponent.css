@@ -3,8 +3,36 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 345px;
   background: #ffffff;
+  position: relative;
+}
+
+.rect-blur-top {
+  position: absolute;
+  top: 3.5em;
+  right: -4.5em;
+  width: 250px;
+  height: 100px;
+  transform: rotate(72deg);
+  background: radial-gradient(
+    216.39% 94.58% at 61.54% 44.45%,
+    #fff 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.rect-blur-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 112px;
+  background: radial-gradient(
+    50.13% 100% at 50.13% 0%,
+    rgba(255, 255, 255, 0) 0%,
+    #fff 100%
+  );
 }
 
 /* Background path styles - light mode */
@@ -20,13 +48,13 @@
 }
 
 .speed-slow {
-    stroke-dasharray: 8 1000; /* visible dash = 8px, the rest hidden */
-    animation: moveTrim 3s linear infinite;
+  stroke-dasharray: 8 1000; /* visible dash = 8px, the rest hidden */
+  animation: moveTrim 3s linear infinite;
 }
 
 .speed-faster {
-    stroke-dasharray: 8 500; /* visible dash = 8px, the rest hidden */
-    animation: moveTrim 3s linear infinite;
+  stroke-dasharray: 8 500; /* visible dash = 8px, the rest hidden */
+  animation: moveTrim 3s linear infinite;
 }
 
 @keyframes moveTrim {
@@ -55,7 +83,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .bookbuilding-light-container {
-    height: 50vh;
+    height: 345px;
   }
 
   .animated-path {
@@ -69,7 +97,7 @@
 
 @media (max-width: 480px) {
   .bookbuilding-light-container {
-    height: 40vh;
+    height: 345px;
   }
 
   .animated-path {

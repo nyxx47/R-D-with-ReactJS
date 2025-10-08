@@ -57,6 +57,8 @@ const BookbuildingLightComponent = () => {
           }}
         />
       </div>
+      <div className="rect-blur-top"></div>
+      <div className="rect-blur-bottom"></div>
       <svg
         width="375"
         height="345"
@@ -118,7 +120,6 @@ const BookbuildingLightComponent = () => {
           fill="url(#paint4_linear_light_updated)"
           stroke="rgba(0, 0, 0, 0.15)"
           strokeWidth="0.37"
-      
         />
         {/* Device corners - light mode */}
         <rect
@@ -264,7 +265,7 @@ const BookbuildingLightComponent = () => {
           stroke="url(#paint15_linear_light)"
           strokeWidth="0.373156"
         />
-      
+
         <rect
           data-figma-bg-blur-radius="3.73156"
           width="117.917"
@@ -279,10 +280,9 @@ const BookbuildingLightComponent = () => {
           height="111.947"
           rx="6"
           transform="matrix(0.866041 -0.499972 0.866041 0.499972 89.8767 137.441)"
-          fill="url(#paint16_radial_light_updated)"
+          fill="url(#paint16_linear_light_updated)"
           stroke="rgba(0, 0, 0, 0.10)"
           strokeWidth="0.37"
-        
         />
         {/* Mask and filters */}
         <mask
@@ -776,16 +776,18 @@ const BookbuildingLightComponent = () => {
             <stop stopColor="#000000" stopOpacity="0.1" />
             <stop offset="1" stopColor="#000000" stopOpacity="0.2" />
           </linearGradient>
-          <radialGradient
-            id="paint16_radial_light_updated"
-            cx="0.13"
-            cy="0.08"
-            r="0.9916"
+          <linearGradient
+            id="paint16_linear_light_updated"
+            x1="0%"
+            y1="80%"
+            x2="100%"
+            y2="0%"
             gradientUnits="objectBoundingBox"
+            gradientTransform="rotate(130)"
           >
-            <stop stopColor="#FFFFFF" />
-            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0.5" />
-          </radialGradient>
+            <stop offset="0%" stopColor="#F5F5F5" />
+            <stop offset="80%" stopColor="#FFFFFF" />
+          </linearGradient>
           <linearGradient
             id="paint17_linear_light"
             x1="37.3156"

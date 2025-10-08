@@ -17,16 +17,17 @@
 /* Animated path styles - single dot animation */
 .animated-path {
   stroke-dashoffset: 0;
+  stroke-width: 4;
 }
 
 .speed-slow {
-    stroke-dasharray: 8 1000; /* visible dash = 8px, the rest hidden */
-    animation: moveTrim 3s linear infinite;
+  stroke-dasharray: 8 1000; /* visible dash = 8px, the rest hidden */
+  animation: moveTrim 3s linear infinite;
 }
 
 .speed-faster {
-    stroke-dasharray: 8 500; /* visible dash = 8px, the rest hidden */
-    animation: moveTrim 3s linear infinite;
+  stroke-dasharray: 8 500; /* visible dash = 8px, the rest hidden */
+  animation: moveTrim 3s linear infinite;
 }
 
 @keyframes moveTrim {
@@ -55,11 +56,11 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .bookbuilding-container {
-    height: 50vh;
+    height: 345px;
   }
 
   .animated-path {
-    stroke-width: 1.5;
+    stroke-width: 2;
   }
 
   .background-path {
@@ -69,7 +70,7 @@
 
 @media (max-width: 480px) {
   .bookbuilding-container {
-    height: 40vh;
+    height: 345px;
   }
 
   .animated-path {
@@ -79,4 +80,10 @@
   .background-path {
     stroke-width: 1.5;
   }
+}
+
+/* Backdrop blur for Safari compatibility */
+.rect-blur {
+  backdrop-filter: blur(1.8657820224761963px);
+  -webkit-backdrop-filter: blur(1.8657820224761963px);
 }
